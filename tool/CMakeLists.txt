@@ -1,7 +1,11 @@
-
 cmake_minimum_required(VERSION 3.5)
 
 project(rs_driver_viewer)
+
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
+set(CMAKE_INSTALL_RPATH "/usr/local/lib")
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 
 message(=============================================================)
 message("-- Ready to compile tools")
@@ -24,7 +28,12 @@ if(WIN32)
   file(COPY ${OPENNI_ROOT}\\Redist\\OpenNI2.dll DESTINATION ${PROJECT_BINARY_DIR}\\Debug)
 endif(WIN32)
 
+set(PCL_DIR "/usr/local/share/pcl-1.13")  # Adjust version number if different
+set(CMAKE_PREFIX_PATH "/usr/local" ${CMAKE_PREFIX_PATH})
+
 find_package(PCL COMPONENTS common visualization io QUIET REQUIRED)
+message(STATUS "Found PCL version: ${PCL_VERSION}")
+message(STATUS "PCL include dirs: ${PCL_INCLUDE_DIRS}")
 add_definitions(${PCL_DEFINITIONS})
 include_directories(${PCL_INCLUDE_DIRS})
 link_directories(${PCL_LIBRARY_DIRS})

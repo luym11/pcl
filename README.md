@@ -2,6 +2,20 @@
 
 [中文介绍](README_CN.md) 
 
+## How to build and run it
+You need to have PCL version 1.13 installed. The apt one only has 1.12. You will need to build it from source. (As suggested by https://github.com/PointCloudLibrary/pcl/issues/5237)
+Then, fix some includes as in this repo. 
+Then, fix cmakelists and build rs_driver with the following command:
+```
+cmake -DCOMPILE_TOOLS=ON -DPCL_ROOT=/usr/local ..
+```
+Then, you could run it like this:
+```
+./tool/rs_driver_viewer -type RSBP -pcap ~/bp_clean.pcap
+```
+
+
+
 
 
 ## 1.1 Introduction

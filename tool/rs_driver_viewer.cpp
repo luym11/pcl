@@ -35,6 +35,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <pcl/point_types.h>
 #include <pcl/visualization/pcl_visualizer.h>
+#include <pcl/common/io.h>
 
 using namespace robosense::lidar;
 using namespace pcl::visualization;
